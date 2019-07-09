@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 public class MyService extends Service {
 
@@ -16,7 +17,8 @@ public class MyService extends Service {
     }
     @Override
     public void onCreate() {
-        Log.d("Service", "Service created");
+        String msg = "Service Created";
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         super.onCreate();
     }
 
@@ -24,16 +26,20 @@ public class MyService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (started == false){
             started = true;
-            Log.d("Service", "Service started");
+           String msg = "Service started";
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         } else {
-            Log.d("Service", "Service is still running");
+            String msg = "Service is still running";
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         }
         return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
     public void onDestroy() {
-        Log.d("Service", "Service exited");
+
+        String msg = "Service exited";
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         super.onDestroy();
     }
 
